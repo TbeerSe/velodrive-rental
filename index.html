@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="ВелоДрайв — прокат современных велосипедов в городе"
+  >
+
+  <title>ВелоДрайв — прокат велосипедов</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="#">
+        <span class="logo__icon">✦</span>
+        Вело<span>Драйв</span>
+      </a>
+
+      <nav class="nav" aria-label="Основная навигация">
+        <a href="#bikes">Велосипеды</a>
+        <a href="#advantages">Преимущества</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+
+      <a class="header__login" href="#login">
+        Войти
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="eyebrow">
+            Городское движение нового уровня
+          </p>
+
+          <h1>
+            Двигайся быстро.
+            <span>Живи ярко.</span>
+          </h1>
+
+          <p class="hero__description">
+            Арендуй велосипед за пару секунд и открывай город
+            без пробок, ограничений и лишних забот.
+          </p>
+
+          <div class="hero__actions">
+            <a class="button button--primary" href="#bikes">
+              Выбрать велосипед
+              <span>→</span>
+            </a>
+
+            <a class="button button--secondary" href="#advantages">
+              Как это работает
+            </a>
+          </div>
+
+          <div class="hero__stats">
+            <div class="stat">
+              <strong>24/7</strong>
+              <span>доступ к прокату</span>
+            </div>
+
+            <div class="stat">
+              <strong>15 мин</strong>
+              <span>среднее время аренды</span>
+            </div>
+
+            <div class="stat">
+              <strong>4.9</strong>
+              <span>рейтинг сервиса</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__visual" aria-label="Изображение велосипеда">
+          <div class="hero__circle"></div>
+
+          <div class="hero__bike">
+            🚲
+          </div>
+
+          <span class="hero__badge hero__badge--top">
+            ЭКО
+          </span>
+
+          <span class="hero__badge hero__badge--bottom">
+            100% свободы
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section class="bikes section" id="bikes">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">
+              Выбери свой ритм
+            </p>
+
+            <h2>
+              Велосипеды для любых маршрутов
+            </h2>
+          </div>
+
+          <a class="text-link" href="#all-bikes">
+            Все велосипеды →
+          </a>
+        </div>
+
+        <div class="bike-grid">
+          <!-- Велосипед 1 -->
+          <article class="bike-card" data-hourly-price="150">
+            <div class="bike-card__image bike-card__image--city">
+              <span class="bike-card__tag">
+                Популярный
+              </span>
+
+              <span class="bike-card__emoji">
+                🚲
+              </span>
+            </div>
+
+            <div class="bike-card__content">
+              <div class="bike-card__title">
+                <h3>
+                  City One
+                </h3>
+
+                <span class="bike-card__price">
+                  150 ₽/час
+                </span>
+              </div>
+
+              <p>
+                Манёвренный велосипед для городских прогулок.
+              </p>
+
+              <ul class="bike-card__features">
+                <li>✓ 7 скоростей</li>
+                <li>✓ Удобное седло</li>
+              </ul>
+
+              <form class="booking-form">
+                <label for="city-date">
+                  Дата и время старта
+                </label>
+
+                <input
+                  id="city-date"
+                  class="date-input"
+                  type="datetime-local"
+                  name="start-date"
+                  required
+                >
+
+                <label for="city-hours">
+                  Время аренды
+                </label>
+
+                <div class="booking-form__controls">
+                  <input
+                    id="city-hours"
+                    class="hours-input"
+                    type="number"
+                    name="hours"
+                    min="1"
+                    max="24"
+                    value="1"
+                    required
+                  >
+
+                  <span>
+                    час.
+                  </span>
+                </div>
+
+                <div class="booking-options">
+                  <label class="booking-option">
+                    <input
+                      class="extra-option"
+                      type="checkbox"
+                      name="helmet"
+                      data-price="50"
+                    >
+
+                    <span>
+                      Аренда шлема
+                    </span>
+
+                    <strong>
+                      +50 ₽/час
+                    </strong>
+                  </label>
+
+                  <label class="booking-option">
+                    <input
+                      class="extra-option"
+                      type="checkbox"
+                      name="child-seat"
+                      data-price="100"
+                    >
+
+                    <span>
+                      Детское кресло
+                    </span>
+
+                    <strong>
+                      +100 ₽/час
+                    </strong>
+                  </label>
+                </div>
+
+                <div class="booking-total">
+                  <span>
+                    Итого:
+                  </span>
+
+                  <strong class="total-price">
+                    150 ₽
+                  </strong>
+                </div>
+
+                <button
+                  class="button button--outline"
+                  type="submit"
+                >
+                  Арендовать
+                </button>
+              </form>
+            </div>
+          </article>
+
+          <!-- Велосипед 2 -->
+          <article class="bike-card" data-hourly-price="350">
+            <div class="bike-card__image bike-card__image--electric">
+              <span class="bike-card__tag">
+                Электро
+              </span>
+
+              <span class="bike-card__emoji">
+                ⚡🚲
+              </span>
+            </div>
+
+            <div class="bike-card__content">
+              <div class="bike-card__title">
+                <h3>
+                  Volt E-Bike
+                </h3>
+
+                <span class="bike-card__price">
+                  350 ₽/час
+                </span>
+              </div>
+
+              <p>
+                Электровелосипед для дальних поездок без усталости.
+              </p>
+
+              <ul class="bike-card__features">
+                <li>✓ Запас хода 60 км</li>
+                <li>✓ Максимум 25 км/ч</li>
+              </ul>
+
+              <form class="booking-form">
+                <label for="electric-date">
+                  Дата и время старта
+                </label>
+
+                <input
+                  id="electric-date"
+                  class="date-input"
+                  type="datetime-local"
+                  name="start-date"
+                  required
+                >
+
+                <label for="electric-hours">
+                  Время аренды
+                </label>
+
+                <div class="booking-form__controls">
+                  <input
+                    id="electric-hours"
+                    class="hours-input"
+                    type="number"
+                    name="hours"
+                    min="1"
+                    max="24"
+                    value="1"
+                    required
+                  >
+
+                  <span>
+                    час.
+                  </span>
+                </div>
+
+                <div class="booking-options">
+                  <label class="booking-option">
+                    <input
+                      class="extra-option"
+                      type="checkbox"
+                      name="helmet"
+                      data-price="50"
+                    >
+
+                    <span>
+                      Аренда шлема
+                    </span>
+
+                    <strong>
+                      +50 ₽/час
+                    </strong>
+                  </label>
+
+                  <label class="booking-option">
+                    <input
+                      class="extra-option"
+                      type="checkbox"
+                      name="child-seat"
+                      data-price="100"
+                    >
+
+                    <span>
+                      Детское кресло
+                    </span>
+
+                    <strong>
+                      +100 ₽/час
+                    </strong>
+                  </label>
+                </div>
+
+                <div class="booking-total">
+                  <span>
+                    Итого:
+                  </span>
+
+                  <strong class="total-price">
+                    350 ₽
+                  </strong>
+                </div>
+
+                <button
+                  class="button button--outline"
+                  type="submit"
+                >
+                  Арендовать
+                </button>
+              </form>
+            </div>
+          </article>
+
+          <!-- Велосипед 3 -->
+          <article class="bike-card" data-hourly-price="280">
+            <div class="bike-card__image bike-card__image--mountain">
+              <span class="bike-card__tag">
+                Премиум
+              </span>
+
+              <span class="bike-card__emoji">
+                🚵
+              </span>
+            </div>
+
+            <div class="bike-card__content">
+              <div class="bike-card__title">
+                <h3>
+                  Trail Pro
+                </h3>
+
+                <span class="bike-card__price">
+                  280 ₽/час
+                </span>
+              </div>
+
+              <p>
+                Надёжный велосипед для парков, леса и бездорожья.
+              </p>
+
+              <ul class="bike-card__features">
+                <li>✓ Амортизационная вилка</li>
+                <li>✓ 21 скорость</li>
+              </ul>
+
+              <form class="booking-form">
+                <label for="trail-date">
+                  Дата и время старта
+                </label>
+
+                <input
+                  id="trail-date"
+                  class="date-input"
+                  type="datetime-local"
+                  name="start-date"
+                  required
+                >
+
+                <label for="trail-hours">
+                  Время аренды
+                </label>
+
+                <div class="booking-form__controls">
+                  <input
+                    id="trail-hours"
+                    class="hours-input"
+                    type="number"
+                    name="hours"
+                    min="1"
+                    max="24"
+                    value="1"
+                    required
+                  >
+
+                  <span>
+                    час.
+                  </span>
+                </div>
+
+                <div class="booking-options">
+                  <label class="booking-option">
+                    <input
+                      class="extra-option"
+                      type="checkbox"
+                      name="helmet"
+                      data-price="50"
+                    >
+
+                    <span>
+                      Аренда шлема
+                    </span>
+
+                    <strong>
+                      +50 ₽/час
+                    </strong>
+                  </label>
+
+                  <label class="booking-option">
+                    <input
+                      class="extra-option"
+                      type="checkbox"
+                      name="child-seat"
+                      data-price="100"
+                    >
+
+                    <span>
+                      Детское кресло
+                    </span>
+
+                    <strong>
+                      +100 ₽/час
+                    </strong>
+                  </label>
+                </div>
+
+                <div class="booking-total">
+                  <span>
+                    Итого:
+                  </span>
+
+                  <strong class="total-price">
+                    280 ₽
+                  </strong>
+                </div>
+
+                <button
+                  class="button button--outline"
+                  type="submit"
+                >
+                  Арендовать
+                </button>
+              </form>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="advantages section" id="advantages">
+      <div class="container advantages__inner">
+        <div>
+          <p class="eyebrow">
+            Почему ВелоДрайв
+          </p>
+
+          <h2>
+            Всё необходимое для комфортной поездки
+          </h2>
+        </div>
+
+        <div class="advantages__list">
+          <div class="advantage">
+            <span>01</span>
+
+            <div>
+              <h3>
+                Быстрый старт
+              </h3>
+
+              <p>
+                Забронируй велосипед в приложении за несколько секунд.
+              </p>
+            </div>
+          </div>
+
+          <div class="advantage">
+            <span>02</span>
+
+            <div>
+              <h3>
+                Честные тарифы
+              </h3>
+
+              <p>
+                Плати только за фактическое время поездки.
+              </p>
+            </div>
+          </div>
+
+          <div class="advantage">
+            <span>03</span>
+
+            <div>
+              <h3>
+                Всегда рядом
+              </h3>
+
+              <p>
+                Станции проката расположены по всему городу.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contacts">
+      <div class="container">
+        <div class="eyebrow">
+          Наши точки
+        </div>
+
+        <h2>
+          Станции проката в городе
+        </h2>
+
+        <div id="map"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a class="logo" href="#">
+        <span class="logo__icon">✦</span>
+        Вело<span>Драйв</span>
+      </a>
+
+      <p>
+        © 2026 ВелоДрайв. Движение начинается здесь.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Модальное окно успешного бронирования -->
+  <div
+    class="modal"
+    id="booking-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+    aria-hidden="true"
+  >
+    <div
+      class="modal__overlay"
+      data-modal-close
+    ></div>
+
+    <div class="modal__card">
+      <button
+        class="modal__close"
+        type="button"
+        aria-label="Закрыть окно"
+        data-modal-close
+      >
+        ×
+      </button>
+
+      <div class="modal__icon">
+        ✓
+      </div>
+
+      <p class="eyebrow">
+        Бронирование подтверждено
+      </p>
+
+      <h2 id="modal-title">
+        Велосипед забронирован
+      </h2>
+
+      <p class="modal__text">
+        Отличный выбор! Детали вашей аренды:
+      </p>
+
+      <div class="modal__details">
+        <div class="modal__detail">
+          <span>
+            Велосипед
+          </span>
+
+          <strong id="modal-bike-name">
+            —
+          </strong>
+        </div>
+
+        <div class="modal__detail">
+          <span>
+            Дата старта
+          </span>
+
+          <strong id="modal-date">
+            —
+          </strong>
+        </div>
+
+        <div class="modal__detail">
+          <span>
+            Время аренды
+          </span>
+
+          <strong id="modal-hours">
+            —
+          </strong>
+        </div>
+
+        <div class="modal__detail">
+          <span>
+            Стоимость
+          </span>
+
+          <strong id="modal-total">
+            —
+          </strong>
+        </div>
+      </div>
+
+      <button
+        class="button button--primary modal__button"
+        type="button"
+        data-modal-close
+      >
+        Закрыть
+      </button>
+    </div>
+  </div>
+
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
