@@ -6,8 +6,8 @@
 
 ## 🚀 Демонстрация
 
-*   **Работающий сайт (Live Demo):** [УКАЖИ_ССЫЛКУ_НА_GITHUB_PAGES_ПОЗЖЕ]
-*   **Ссылка на репозиторий:** `https://github.com`
+*   **Работающий сайт (Live Demo):** https://tbeerse.github.io/velodrive-rental/
+*   **Ссылка на репозиторий:** `https://github.com/TbeerSe/velodrive-rental`
 
 ## 🛠 Технологический стек
 
