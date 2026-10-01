@@ -200,17 +200,9 @@ if (mapElement && typeof L !== "undefined") {
     ? `?key=${cartoApiKey}`
     : "";
 
-  L.tileLayer(
-    `https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png${cartoKeyQuery}`,
-    {
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
-        '&copy; <a href="https://carto.com/attributions">CARTO</a>',
-
-      subdomains: "abcd",
-      maxZoom: 20
-    }
-  ).addTo(map);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: 'Станции проката &copy; ВелоДрайв 2026'
+}).addTo(map);
 
   const stations = [
     {
