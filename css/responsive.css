@@ -1,0 +1,115 @@
+/* ==========================================================================
+   RESPONSIVE — адаптивность (планшет, мобильные)
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .hero {
+    padding: 70px 0 80px;
+  }
+
+  .hero__inner,
+  .advantages__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__visual {
+    min-height: 330px;
+  }
+
+  .bike-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bike-card:last-child {
+    grid-column: span 2;
+    max-width: calc(50% - 10px);
+  }
+}
+
+@media (max-width: 620px) {
+  .container {
+    width: min(100% - 28px, var(--container-width));
+  }
+
+  .header__inner {
+    min-height: 68px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .hero {
+    padding: 56px 0 65px;
+  }
+
+  .hero__description {
+    font-size: 16px;
+  }
+
+  .hero__actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .hero__stats {
+    justify-content: space-between;
+    gap: 14px;
+    margin-top: 38px;
+  }
+
+  .stat strong {
+    font-size: 17px;
+  }
+
+  .section {
+    padding: 65px 0;
+  }
+
+  .section-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .bike-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bike-card:last-child {
+    grid-column: auto;
+    max-width: none;
+  }
+
+  .advantages__inner {
+    gap: 40px;
+  }
+
+  .footer__inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .modal__card {
+    padding: 34px 24px 26px;
+  }
+
+  .booking-option {
+    grid-template-columns: 18px 1fr;
+  }
+
+  .booking-option strong {
+    grid-column: 2;
+    margin-top: -5px;
+  }
+
+  #map {
+    height: 320px;
+    margin-top: 28px;
+    border-radius: 20px;
+  }
+}

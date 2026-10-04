@@ -1,0 +1,90 @@
+/* ==========================================================================
+   HEADER + FOOTER + LOGO
+   ========================================================================== */
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.logo span:last-child {
+  color: var(--color-primary);
+}
+
+.logo__icon {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border-radius: 9px;
+  background: var(--color-primary);
+  color: var(--color-bg);
+  font-size: 18px;
+}
+
+/* Шапка */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid var(--color-border);
+  background: rgba(17, 19, 21, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 78px;
+  gap: 30px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+.nav a,
+.header__login {
+  transition: color var(--transition);
+}
+
+.nav a:hover,
+.header__login:hover {
+  color: var(--color-primary);
+}
+
+.header__login {
+  color: var(--color-primary);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Подвал */
+
+.footer {
+  border-top: 1px solid var(--color-border);
+  padding: 28px 0;
+}
+
+.footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer p {
+  color: var(--color-text-muted);
+  font-size: 12px;
+}
