@@ -1,4 +1,4 @@
-# 🚲 ВелоДрайв
+# 🚲 ВелоДрайв — прокат велосипедов
 
 Одностраничный сайт сервиса по аренде велосипедов: адаптивная вёрстка, интерактивный расчёт стоимости, модальное окно подтверждения и карта станций на Leaflet.
 
@@ -34,40 +34,54 @@
 
 ### Клонировать репозиторий
 
-git clone https://github.com/TbeerSe/velodrive-rental.git
-cd velodrive-rental
+    git clone https://github.com/TbeerSe/velodrive-rental.git
+    cd velodrive-rental
 
 ### Запустить локальный сервер
 
 Для работы ES-модулей нужен HTTP-сервер (из-за политики безопасности браузера `file://` не подойдёт).
 
-python -m http.server 8000
+    python -m http.server 8000
 
 или через Node.js:
 
-npx serve .
+    npx serve .
 
 Затем открой http://localhost:8000 в браузере.
 
 ## 📁 Структура проекта
 
-velodrive-rental/
-├── index.html
-├── css/
-│   ├── base.css          # переменные, сброс, общие стили
-│   ├── header.css        # шапка и подвал
-│   ├── hero.css          # первый экран
-│   ├── bikes.css         # карточки велосипедов и форма брони
-│   ├── advantages.css    # преимущества и карта
-│   ├── modal.css         # модальное окно
-│   └── responsive.css    # медиа-запросы
-├── js/
-│   ├── main.js           # точка входа
-│   ├── booking.js        # логика бронирования
-│   ├── map.js            # карта станций
-│   └── modal.js          # управление модалкой
-├── README.md
-└── LICENSE
+    velodrive-rental/
+    ├── index.html
+    ├── css/
+    │   ├── base.css          # переменные, сброс, общие стили
+    │   ├── header.css        # шапка и подвал
+    │   ├── hero.css          # первый экран
+    │   ├── bikes.css         # карточки велосипедов и форма брони
+    │   ├── advantages.css    # преимущества и карта
+    │   ├── modal.css         # модальное окно
+    │   └── responsive.css    # медиа-запросы
+    ├── js/
+    │   ├── main.js           # точка входа
+    │   ├── booking.js        # логика бронирования
+    │   ├── map.js            # карта станций
+    │   └── modal.js          # управление модалкой
+    ├── images/
+    ├── README.md
+    └── LICENSE
+
+## ⚙️ Настройка карты (Leaflet)
+
+1. Открыть `js/map.js`.
+2. Заменить координаты центра и станций:
+
+    const CITY_CENTER = [55.751244, 37.618423];
+    const STATIONS = [
+      { id: 1, coords: [55.751244, 37.618423] },
+      // ...
+    ];
+
+Координаты найти: Google Maps → правый клик по точке → скопировать первые два числа.
 
 ## 📸 Скриншот
 
